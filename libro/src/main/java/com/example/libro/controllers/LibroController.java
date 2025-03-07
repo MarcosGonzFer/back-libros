@@ -25,16 +25,17 @@ public class LibroController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
-
-    @PutMapping
-    public ResponseEntity<Libro> actualizarLibro(@RequestBody Libro libro) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Libro> actualizarLibro(@PathVariable Long id, @RequestBody Libro libro) {
         try {
+            libro.setId(id);
             Libro saveLibro = libroServiceImp.actualizarLibro(libro);
             return new ResponseEntity<>(saveLibro, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
+
 
     @GetMapping
     public ResponseEntity<List<Libro>> listarLibros() {
