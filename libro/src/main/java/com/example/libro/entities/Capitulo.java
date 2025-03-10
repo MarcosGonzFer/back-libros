@@ -6,27 +6,19 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @Entity
-public class Libro {
+public class Capitulo {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    private String titulo;
-
-    @NotBlank
-    private String autor;
+    private String nombre;
 
     @NotNull
-    private Integer paginas;
-
-    @NotNull
-    private double precio;
+    private Integer numero;
 
 }
